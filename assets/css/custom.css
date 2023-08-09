@@ -7,7 +7,7 @@ a {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 6rem;
+    width: 4.5rem;
     padding: 1rem 0.5rem 1rem 0rem;
     /* background-color: #f8f9fa; */
     z-index: 1050;
@@ -16,7 +16,7 @@ a {
   
   /* when the user hovers on the sidebar, expand it */
   .sidebar:hover {
-    width: 9rem;
+    width: 12rem;
   }
   
   /* make sure the contents of the navlink don't wrap when navbar collapses */
@@ -68,22 +68,19 @@ a {
     opacity: 1;
   }
 
-  /* tried many ways to change the background of the selected link on sidebard, no success yet*/
+  /* defined at `.nav-link.active` below instead */ 
   .sidebar.nav-link.active:hover {
-    background-color: #213C63;
+    /*background-color: #7d1a1a; */
   }
   
   /* position the content relative to the collapsed sidebar */
   .content {
     margin-left: 8rem;
-    margin-right: 5rem;
+    margin-right: 8rem;
     padding: 2rem 1rem;
   }
 
-  @font-face {
-    font-family: "garamond";
-    }
- .card-head {
+  .card-head {
     border-radius: 5px;
     /*background-color: #fff;*/
     margin: 10px;

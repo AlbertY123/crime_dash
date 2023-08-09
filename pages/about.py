@@ -1,6 +1,7 @@
 import dash
 from dash import html
 import utils.theme as theme
+import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, callback, dcc, html,State
 from utils.consts import LINKEDIN_PROFILE, GITHUB_PROFILE
 
@@ -20,42 +21,96 @@ Albert is my Year7 son who volunteered to help deploy this dashboard. I am very 
 """
 post_url = "https://www.linkedin.com/posts/mena-ning-wang_datascience4socialgood-crimetrends-dash-activity-7086267024871456768-YRGh"
 
-layout = html.Div(className="col-md-12 col-sm-12 col-lg-8 mb-md-0 mb-4 card-chart-container",
-    children=[html.Div( className="card",
+
+layout = html.Div(
     children=[
-        html.Div(className="card-body p-0", children=[
-            html.Div(className="d-flex justify-content-between", children=[
-                html.Div(className="card-info p-4 ",
-                         children=[html.H3(className="card-text", children=["Who are we?"]),
-                                    html.H2(className="card-text m-0 p-0", children=["Mena and Albert"] , style={"color":theme.COLOR_PALLETE[0]}),
-                                   html.Div(className="mb-2 mt-2", children=[
-                                       html.P(className="card-title mb-2",
-                                             children=[
-                                                 html.P(about_me_p1), html.Br(),
-                                                 html.P(about_me_p2), html.Br(),
-                                                 html.P([about_me_p3,html.A('this post', href=post_url, target='_blank'),"."]),
-                                                 ], style={"font-size":"1rem"}),
-                                   ]),
-                                   html.Small(
-                             className="card-text", children=[]),
-                             html.A(href=LINKEDIN_PROFILE,target="_blank" ,children=[
-                                html.I(className="bx bxl-linkedin-square mt-3", style={"font-size":"2.5rem" , "color":"#0a66c2"}),]),
-                             html.A(href=GITHUB_PROFILE,target="_blank",
-                             children=[html.I(className="bx bxl-github mt-3" , style={"font-size":"2.5rem" , "color":"#0a66c2"})]),
-
-                         ]),
-                # html.Div(className="card-icon d-flex align-items-end", children=[
-                #     # html.Img(className="img-fluid",
-                #     #          src="./assets/images/programmer.gif" , style={"border-radius":6})
-                # ]
-                # )
-            ])
-
+        dbc.Row([
+            dbc.Col(className="col-sm-0 col-md-1 col-lg-1"),
+            dbc.Col(className="col-sm-11 col-md-11 col-lg-10", 
+                children=[
+                html.Div(
+                    className="card", 
+                    style={"margin-left": "20px"},
+                    children=[
+                        html.Div(className="card-body p-0", children=[
+                            html.Div(className="d-flex justify-content-between", children=[
+                                html.Div(
+                                    className="card-info p-4",
+                                    children=[
+                                        html.H3(className="card-text", children=["Who are we?"]),
+                                        html.H2(
+                                            className="card-text m-0 p-0",
+                                            children=["Mena and Albert"],
+                                            style={"color": theme.COLOR_PALLETE[0]},
+                                        ),
+                                        html.Div(
+                                            className="mb-2 mt-2",
+                                            children=[
+                                                html.P(
+                                                    className="card-title mb-2",
+                                                    children=[
+                                                        html.P(about_me_p1),
+                                                        html.Br(),
+                                                        html.P(about_me_p2),
+                                                        html.Br(),
+                                                        html.P(
+                                                            [
+                                                                about_me_p3,
+                                                                html.A(
+                                                                    "this post",
+                                                                    href=post_url,
+                                                                    target="_blank",
+                                                                ),
+                                                                ".",
+                                                            ],
+                                                            style={
+                                                                "font-size": "1rem"
+                                                            },
+                                                        ),
+                                                    ],
+                                                    style={"font-size": "1rem"},
+                                                ),
+                                            ],
+                                        ),
+                                        html.Small(className="card-text", children=[]),
+                                        html.A(
+                                            href=LINKEDIN_PROFILE,
+                                            target="_blank",
+                                            children=[
+                                                html.I(
+                                                    className="bx bxl-linkedin-square mt-3",
+                                                    style={
+                                                        "font-size": "2.5rem",
+                                                        "color": "#0a66c2",
+                                                    },
+                                                )
+                                            ],
+                                        ),
+                                        html.A(
+                                            href=GITHUB_PROFILE,
+                                            target="_blank",
+                                            children=[
+                                                html.I(
+                                                    className="bx bxl-github mt-3",
+                                                    style={
+                                                        "font-size": "2.5rem",
+                                                        "color": "#0a66c2",
+                                                    },
+                                                )
+                                            ],
+                                        ),
+                                    ],
+                                )
+                            ])
+                        ])
+                    ],
+                    id="about_id",
+                )
+            ]),
         ])
     ],
-    id='about_id'),
-    ]
-    )
+)
+
 
 @callback(
    Output("about_id", "style"),

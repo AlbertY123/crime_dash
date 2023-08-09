@@ -6,7 +6,7 @@ sidebar = html.Div(
         html.Div(
             [
                 html.Img(src="./assets/images/crime_stopper.gif", style={"width": "4rem"}),
-                html.H4("", className="m-0"),
+                html.H4(" Crime Dash", className="m-0"),
             ],
             className="sidebar-header",
         ),
