@@ -10,6 +10,7 @@ dash.register_page(
 
 layout = dbc.Container(
     dbc.Row([ 
+        dbc.Col(className="col-md-0 col-lg-1"),
         dbc.Col([ 
             html.Br(), html.Br(),
             html.H3("App Toc"),

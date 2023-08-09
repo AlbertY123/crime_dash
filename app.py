@@ -41,33 +41,33 @@ color_bg_store = html.Div([dcc.Store(id="color_bg", data="#f8f9fa"),])
 server = app.server
 
 app.layout = html.Div(id='app',className="layout-wrapper layout-content-navbar",
-                      children=[
-                          html.Div(className="layout-container",
-                                   children=[
-                                       dcc.Location(id="url"),
-                                       color_bg_store,
-                                       html.Aside(className="",
-                                                  children=[sidebar]),
-                                       html.Div(className="layout-page",
+                        children=[
+                            html.Div(className="layout-container",
+                                    children=[
+                                        dcc.Location(id="url"),
+                                        color_bg_store,
+                                        html.Aside(className="",
+                                                    children=[sidebar]),
+                                        html.Div(className="layout-page",
                                                 children=[
                                                     html.Div(className="content-wrapper",
-                                                             children=[
-                                                                 html.Div(className="container-xxl flex-grow-1 container-p-y p-0",
+                                                                children=[
+                                                                html.Div(className="container-xxl flex-grow-1 container-p-y p-0",
                                                                         #   id="page-content",
-                                                                          children=[dash.page_container,
-                                                                          ]),
-                                                                 html.Footer(className="content-footer footer bg-footer-theme",
-                                                                             children=[
-                                                                                 Footer#,dark_theme_button
-                                                                             ], style={"margin-left": "6rem"})
-                                                             ])
+                                                                        children=[dash.page_container,
+                                                                        ]),
+                                                                html.Footer(className="content-footer footer bg-footer-theme",
+                                                                            children=[
+                                                                            Footer#,dark_theme_button
+                                                                            ], style={"margin-left": "6rem"})
+                                                            ])
                                                 ])
-                                   ])
-                      ])
+                                    ])
+                        ])
 
 # theme
 @app.callback(
-   [ Output('app', 'style'),
+    [ Output('app', 'style'),
     Output("color_bg", 'data'),
     Output('theme-btn', 'src'), 
     Output('L_tip', 'children'),
